@@ -8,6 +8,7 @@ import Signup from './components/Signup/Signup.jsx';
 import Login from './components/Login.jsx'; //로그인 페이지
 import Main from './components/Main.jsx';  // 메인 페이지
 import { TableProvider } from './components/Dining/TableContext.jsx';
+import Logout from './components/Logout.jsx';  // 메인 페이지
 
 // import ProductManagement from './components/Product/ProductManagement';
 // import Order from './components/Order/Order.js';  // 주문 페이지
@@ -51,7 +52,8 @@ function App() {
               {/* <Route path="/pay" element={<Payment/>}/> 결제 */}
               {/* <Route path="/success" element={<TossPayResult/>}/> 결제 */}
               {/* <Route path="/kitchen" element={<KitchenSocket/>}/>주방 */}
-              
+              <Route path="/logout" element={<Logout />} />
+
               {/* <Route path="/test" element={<Test />} /> test용 */}
             </Routes>
         </Router>

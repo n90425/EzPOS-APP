@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 // import { fetchShopStatus, handleClose, handleStartOpen } from "./Open/shopService";
 // import SalesSummary from "./SalesSummary"; // 추가한 SalesSummary 컴포넌트 임포트
 import "./Main.css";
 
 function Main() {
+  const navigate = useNavigate();
 //   const [isOpen, setIsOpen] = useState(null);
 //   const navigate = useNavigate(); // useNavigate 훅 사용
 
@@ -33,6 +35,8 @@ function Main() {
   useEffect(() => {
     const fetchUserInfo = async () => {
       const token = localStorage.getItem("token");
+
+      console.log("token12:" , token);
 
       const res = await fetch("http://localhost:8080/api/userinfo", {
         method: "GET",
@@ -66,7 +70,7 @@ function Main() {
     { name: '담당자', path: '/manager', color: "gray"  },
     { name: '상품관리', path: '/product-management', color: "gray"  },
     { name: '마감정산', path: '/shop/close', color: "gray" },
-    { name: '종료', path: '/exit', color: "gray" },
+    { name: '종료', path: '/logout', color: "gray" },
   ];
 
   return (
@@ -79,7 +83,7 @@ function Main() {
           {menuItems.map((item, index) => (
             <button
               key={index}
-              onClick={() => handleButtonClick(item.path)}
+              onClick={() => navigate(item.path)}
               className={`mainpage-menu-item ${item.color}`}
             >
               {item.name}
