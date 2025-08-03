@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
+@RequestMapping("/api")
 public class PosSystemUpdateApplication {
 
     public static void main(String[] args) {
